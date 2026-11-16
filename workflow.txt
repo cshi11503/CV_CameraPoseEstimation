@@ -1,0 +1,24 @@
+Data
+7-Scenes chess, seq-01 first; other scenes later.
+Strides 1, 2, 5, 10, 20, with 20 images per run, starting at frame 0 (frames 0, s, 2s, …, 19s; at stride 20 that's frames 0 to 380).
+That's 5 runs per method.
+
+Inputs
+Raw 640×480 frame-XXXXXX.color.png files, no pre-resizing (each method resizes internally).
+Same intrinsics for everyone: fx = fy = 525, cx = 320, cy = 240. The RGB camera is uncalibrated, and 525 is the value DSAC* uses.
+
+Output (one file per run)
+TUM text: frame_index tx ty tz qx qy qz qw, camera-to-world, any scale.
+Leave out frames your method fails to register.
+File name: <method>_chess_seq01_s<stride>_n20.txt
+Runtime: wall-clock seconds from images in to poses out, excluding model loading. Add a row to runtimes.csv (method, scene, stride, N, seconds, hardware).
+
+Scoring (one shared script)
+Sim(3) Umeyama alignment of estimated camera centers to ground truth, since DUSt3R and VGGT have no metric scale.
+Translation error (cm) and rotation error (deg), median and mean.
+Recovery rate = registered frames / 20, plus the percentage of frames within 5 cm and 5°, since DUSt3R and VGGT always return all 20.
+
+
+Logistics
+Pose files and runtimes.csv go in the shared folder.
+Two scripts to be written: the frame-list builder and the shared scoring script.
