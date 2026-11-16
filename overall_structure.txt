@@ -1,0 +1,38 @@
+camera-pose-estimation/
+│
+├── README.md
+├── requirements.txt
+├── .gitignore
+│
+├── configs/
+│   └── experiment.yaml
+│
+├── data/
+│   └── README.md
+│
+├── methods/
+│   ├── colmap/
+│   │   └── run.py
+│   │
+│   ├── openmvg/
+│   │   └── run.py
+│   │
+│   ├── vggt/
+│   │   └── run.py
+│   │
+│   └── dust3r/
+│       └── run.py
+│
+├── shared/
+│   ├── build_frame_list.py
+│   ├── pose_utils.py
+│   └── evaluate.py
+│
+├── outputs/
+│   ├── colmap/
+│   ├── openmvg/
+│   ├── vggt/
+│   └── dust3r/
+│
+└── results/
+    └── runtimes.csv

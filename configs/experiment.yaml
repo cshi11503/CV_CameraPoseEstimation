@@ -1,0 +1,35 @@
+
+dataset:
+  name: "7Scenes"
+  root: "data/7scenes"
+  scene: "chess"
+  sequence: "seq-01"
+
+sampling:
+  strides: [1, 2, 5, 10, 20]
+  num_images: 20
+  start_frame: 0
+
+camera:
+  width: 640
+  height: 480
+  fx: 525.0
+  fy: 525.0
+  cx: 320.0
+  cy: 240.0
+  intrinsics_type: "assumed"
+
+methods:
+  - colmap
+  - openmvg
+  - vggt
+  - dust3r
+
+evaluation:
+  alignment: "sim3"
+  translation_threshold_cm: 5.0
+  rotation_threshold_deg: 5.0
+
+output:
+  pose_directory: "outputs"
+  results_directory: "results"

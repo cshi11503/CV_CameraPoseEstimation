@@ -1,0 +1,30 @@
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+
+# Dataset
+data/7scenes/
+
+# Pretrained model weights
+*.pth
+*.pt
+*.ckpt
+*.safetensors
+
+# Large generated artifacts
+outputs/*
+!outputs/.gitkeep
+
+# Intermediate reconstruction files
+*.bin
+*.ply
+
+# Local environment
+.env
+.vscode/
+
+# Keep small final results tracked
